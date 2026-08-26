@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Top Up Mobile Legends - KoylMarket.ID</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#ffffff",
+                        "surface-bright": "#363a3e",
+                        "on-tertiary": "#5a1c00",
+                        "on-secondary-fixed-variant": "#454748",
+                        "background": "#000000",
+                        "surface": "#000000",
+                        "on-tertiary-fixed": "#370e00",
+                        "error": "#ffb4ab",
+                        "surface-container-low": "#181c20",
+                        "surface-container": "#1c2024",
+                        "primary-fixed-dim": "#b1c5ff",
+                        "on-error": "#690005",
+                        "on-background": "#e0e3e8",
+                        "on-secondary-fixed": "#191c1d",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#e0e3e8",
+                        "tertiary-fixed-dim": "#ffb599",
+                        "surface-variant": "#313539",
+                        "secondary": "#c5c7c8",
+                        "accent-gold": "#FFD700",
+                        "tertiary-container": "#cf4b00",
+                        "on-tertiary-fixed-variant": "#7f2b00",
+                        "surface-card": "#2b3035",
+                        "tertiary": "#ffb599",
+                        "surface-container-lowest": "#0b0f12",
+                        "on-primary": "#002c70",
+                        "on-tertiary-container": "#ffffff",
+                        "on-primary-fixed-variant": "#00419e",
+                        "on-surface-variant": "#c2c6d8",
+                        "background-deep": "#1a1d20",
+                        "outline": "#8c90a1",
+                        "secondary-fixed": "#e1e3e4",
+                        "primary-fixed": "#dae2ff",
+                        "on-primary-fixed": "#001946",
+                        "surface-container-high": "#262a2e",
+                        "on-surface": "#e0e3e8",
+                        "primary": "#b1c5ff",
+                        "secondary-fixed-dim": "#c5c7c8",
+                        "tertiary-fixed": "#ffdbce",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#0057ce",
+                        "outline-variant": "#424655",
+                        "on-secondary": "#2e3132",
+                        "secondary-container": "#494c4d",
+                        "status-blue": "#3498DB",
+                        "surface-tint": "#b1c5ff",
+                        "inverse-on-surface": "#2d3135",
+                        "primary-container": "#0d6efd",
+                        "surface-container-highest": "#313539",
+                        "surface-dim": "#000000",
+                        "on-secondary-container": "#babcbd"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "margin-desktop": "24px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "16px",
+                        "container-max": "1200px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(197, 225, 252, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .item-card-selected {
+            border-color: #043f98 !important;
+            box-shadow: 0 0 10px rgba(4, 71, 173, 0.3);
+            background-color: rgba(13, 110, 253, 0.05);
+        }
+    </style>
+<script>
+        function selectCard(element) {
+            const siblings = element.parentNode.children;
+            for (let i = 0; i < siblings.length; i++) {
+                siblings[i].classList.remove('item-card-selected');
+            }
+            element.classList.add('item-card-selected');
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="bg-background border-b border-surface-variant sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<a class="flex items-center" href="/">
+<img alt="KoylMarket.ID" class="h-8 md:h-10 object-contain" src="Logo.png"/>
+</a>
+<nav class="hidden md:flex gap-6 ml-8">
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex relative text-on-surface-variant">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-sm">search</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full px-margin-mobile md:px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<!-- Breadcrumb -->
+<nav aria-label="Breadcrumb" class="flex text-label-sm font-label-sm text-on-surface-variant mb-6">
+<ol class="inline-flex items-center space-x-1 md:space-x-3">
+<li class="inline-flex items-center">
+<a class="hover:text-primary transition-colors" href="#">Beranda</a>
+</li>
+<li>
+<div class="flex items-center">
+<span class="material-symbols-outlined text-sm mx-1">chevron_right</span>
+<span class="text-primary">Mobile Legends</span>
+</div>
+</li>
+</ol>
+</nav>
+<!-- Hero Section -->
+<div class="mb-stack-lg">
+<div class="rounded-xl overflow-hidden mb-6 h-[150px] md:h-[300px] relative">
+<img alt="Banner Top Up Mobile Legends" class="w-full h-full object-cover" src="Banner Topupku.jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+</div>
+<div class="flex flex-col md:flex-row gap-6 items-start">
+<img alt="Mobile Legends Icon" class="w-24 h-24 md:w-32 md:h-32 rounded-xl object-cover border border-surface-variant shadow-lg" src="https://lh3.googleusercontent.com/aida/AEtjO1Xm0mxNNBKYnma5Akjl_9HfTsh4ykAIe3dArC1EPv5va3JfHrgQcdoLhTvcdjhSpov-dwL9TafOmw-n1Ax3KlIoertTqCOJTyQB6Wm-Rlv1P3Rd5ocLXW8AXo6kzemHSYYZ7GSvt1DhBuRFXmXebUYXEe81o1Ah1YFLbTOZLpzlMKpRflPpBaCrgSeZw6AOjwJR_nXcgepEXQIpXgMIoT6pw1XL2E4MGurMcHVRII2vsR4Uoa_ajDiUXW2X"/>
+<div class="flex-1">
+<h1 class="text-display-lg font-display-lg text-on-surface mb-2">Mobile Legends</h1>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-surface-container-high text-status-blue text-xs px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Diproses Otomatis
+                        </span>
+<span class="bg-surface-container-high text-status-blue text-xs px-2 py-1 rounded flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_shipping</span> Pengiriman Instan
+                        </span>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-primary mb-2">Top Up Mobile Legends (ML) Diamond dan Weekly Pass</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mb-2">
+<strong>Top Up Mobile Legends</strong> murah, cepat, dan aman. Beli <strong>Diamond</strong> &amp; <strong>Weekly Diamond Pass (WDP)</strong> ML 100% legal dengan harga terbaik setiap hari hanya di KoylMarket.id!
+                    </p>
+<p class="text-body-md font-body-md text-on-surface-variant italic">Khusus untuk akun region indonesia</p>
+</div>
+</div>
+</div>
+<div class="space-y-stack-md">
+<!-- Top Up Process -->
+<!-- Step 1: User ID -->
+<section class="bg-surface-card rounded-xl border border-outline-variant p-6">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">1</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Masukkan User ID</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-1">User ID</label>
+<input class="w-full bg-background border border-outline-variant rounded-md px-4 py-2 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Masukkan User ID" type="text"/>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-1">Server ID</label>
+<input class="w-full bg-background border border-outline-variant rounded-md px-4 py-2 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Masukkan Server ID" type="text"/>
+</div>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 italic">Untuk menemukan User ID Anda, klik avatar Anda di sudut kiri atas layar utama. User ID akan terlihat di bawah nama Anda (Contoh: 12345678(1234)).</p>
+</section>
+<!-- Step 2: Nominal -->
+<section class="bg-surface-card rounded-xl border border-outline-variant p-6">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">2</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Pilih Nominal</h3>
+</div>
+<div class="bg-surface-container-low border border-primary-container/30 rounded-lg p-3 mb-6 flex items-start gap-2 text-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">info</span>
+<p class="text-label-sm font-label-sm"><strong>7312</strong> transaksi dibeli bulan ini!</p>
+</div>
+<div class="mb-6">
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface mb-3 border-b border-surface-variant pb-2">Membership</h4>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+<!-- Items -->
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">Weekly Diamond Pass</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 32.889</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 34.716</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">Weekly Diamond Pass 2x</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 66.077</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 69.748</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">Weekly Diamond Pass 3x</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 99.115</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 104.622</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">Weekly Diamond Pass 4x</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 132.153</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 139.495</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">Weekly Diamond Pass 5x</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 165.191</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 174.368</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">Weekly Elite Bundle</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 17.260</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 18.219</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">Monthly Epic Bundle</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 86.272</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 91.065</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">Twilight Pass</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 170.831</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 180.322</p>
+</div>
+</div>
+</div>
+<div>
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface mb-3 border-b border-surface-variant pb-2">Diamonds</h4>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+<!-- Items -->
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">5 Diamonds</p>
+<p class="text-xs text-primary-fixed">(5 + 0 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 1.620</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 1.710</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">10 Diamonds</p>
+<p class="text-xs text-primary-fixed">(9 + 1 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 3.234</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 3.414</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">19 Diamonds</p>
+<p class="text-xs text-primary-fixed">(17 + 2 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 6.286</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 6.635</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">28 Diamonds</p>
+<p class="text-xs text-primary-fixed">(25 + 3 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 9.122</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 9.628</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">36 Diamonds</p>
+<p class="text-xs text-primary-fixed">(33 + 3 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 11.998</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 12.665</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">44 Diamonds</p>
+<p class="text-xs text-primary-fixed">(40 + 4 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 13.822</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 14.589</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">54 Diamonds</p>
+<p class="text-xs text-primary-fixed">(50 + 4 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 17.011</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 17.956</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">59 Diamonds</p>
+<p class="text-xs text-primary-fixed">(53 + 6 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 18.256</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 19.270</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">71 Diamonds</p>
+<p class="text-xs text-primary-fixed">(64 + 7 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 22.290</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 23.528</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group item-card-selected relative" onclick="selectCard(this)">
+<div class="absolute -top-2 -right-2 bg-accent-gold text-background text-[10px] font-bold px-2 py-1 rounded-full shadow-lg">HOT</div>
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">85 Diamonds</p>
+<p class="text-xs text-primary-fixed">(77 + 8 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 26.376</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 27.842</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">113 Diamonds</p>
+<p class="text-xs text-primary-fixed">(102 + 11 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 35.470</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 37.440</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">128 Diamonds</p>
+<p class="text-xs text-primary-fixed">(117 + 11 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 39.752</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 41.960</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">170 Diamonds</p>
+<p class="text-xs text-primary-fixed">(154 + 16 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 52.227</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 55.128</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">240 Diamonds</p>
+<p class="text-xs text-primary-fixed">(217 + 23 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 73.868</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 77.972</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">257 Diamonds</p>
+<p class="text-xs text-primary-fixed">(233 + 24 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 79.451</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 83.865</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">296 Diamonds</p>
+<p class="text-xs text-primary-fixed">(256 + 40 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 90.922</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 95.973</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">355 Diamonds</p>
+<p class="text-xs text-primary-fixed">(309 + 46 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 109.148</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 115.212</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">408 Diamonds</p>
+<p class="text-xs text-primary-fixed">(367 + 41 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 125.587</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 132.564</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">568 Diamonds</p>
+<p class="text-xs text-primary-fixed">(503 + 65 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 171.358</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 180.878</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">716 Diamonds</p>
+<p class="text-xs text-primary-fixed">(637 + 79 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 219.049</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 231.218</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">750 Diamonds</p>
+<p class="text-xs text-primary-fixed">(668 + 82 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 227.608</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 240.253</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">875 Diamonds</p>
+<p class="text-xs text-primary-fixed">(774 + 101 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 262.676</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 277.269</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">1045 Diamonds</p>
+<p class="text-xs text-primary-fixed">(908 + 137 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 314.956</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 332.454</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">1136 Diamonds</p>
+<p class="text-xs text-primary-fixed">(1006 + 146 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 342.770</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 361.813</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">1159 Diamonds</p>
+<p class="text-xs text-primary-fixed">(1012 + 147 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 350.288</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 369.748</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">1704 Diamonds</p>
+<p class="text-xs text-primary-fixed">(1509 + 195 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 517.454</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 546.202</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">1750 Diamonds</p>
+<p class="text-xs text-primary-fixed">(1548 + 202 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 525.406</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 554.595</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">2010 Diamonds</p>
+<p class="text-xs text-primary-fixed">(1708 + 302 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 570.935</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 602.654</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">3453 Diamonds</p>
+<p class="text-xs text-primary-fixed">(2985 + 468 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 1.004.995</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 1.060.828</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">4020 Diamonds</p>
+<p class="text-xs text-primary-fixed">(3416 + 604 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 1.141.924</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 1.205.364</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">4830 Diamonds</p>
+<p class="text-xs text-primary-fixed">(4003 + 827 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 1.370.130</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 1.446.248</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">5398 Diamonds</p>
+<p class="text-xs text-primary-fixed">(4506 + 892 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 1.541.460</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 1.627.097</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">6030 Diamonds</p>
+<p class="text-xs text-primary-fixed">(5124 + 906 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 1.728.094</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 1.824.099</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">6840 Diamonds</p>
+<p class="text-xs text-primary-fixed">(5711 + 1129 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 1.941.037</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 2.048.873</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">8040 Diamonds</p>
+<p class="text-xs text-primary-fixed">(6832 + 1208 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 2.304.126</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 2.432.133</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">8850 Diamonds</p>
+<p class="text-xs text-primary-fixed">(7419 + 1431 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 2.511.945</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 2.651.497</p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 cursor-pointer hover:border-primary-container transition-all hover:-translate-y-1 group" onclick="selectCard(this)">
+<p class="text-label-sm font-label-bold text-on-surface group-hover:text-primary transition-colors">9660 Diamonds</p>
+<p class="text-xs text-primary-fixed">(8006 + 1654 Bonus)</p>
+<p class="text-body-md font-body-md font-bold text-on-surface mt-1">Rp 2.740.151</p>
+<p class="text-xs text-on-surface-variant line-through">Rp 2.892.382</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 3: Payment -->
+<section class="bg-surface-card rounded-xl border border-outline-variant p-6">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">3</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Pilih Pembayaran</h3>
+</div>
+<div class="bg-primary-container/10 border border-primary-container/30 text-primary-fixed text-sm p-3 rounded-lg mb-6 flex items-start gap-2">
+<span class="material-symbols-outlined text-[20px]">info</span>
+<p>Harga yang tertera pada setiap metode pembayaran merupakan harga final. Tidak ada biaya tambahan apa pun lagi.</p>
+</div>
+<div class="space-y-6">
+<!-- E-Wallet -->
+<div>
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface mb-3 border-b border-surface-variant pb-2">E-Wallet</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="bg-background border border-outline-variant rounded-lg p-3 flex justify-between items-center cursor-pointer hover:border-primary-container transition-all" onclick="selectCard(this)">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container rounded-md flex items-center justify-center">
+<span class="text-xs font-bold">GoPay</span>
+</div>
+<div>
+<p class="text-label-sm font-label-bold text-on-surface">GoPay</p>
+<p class="text-xs text-on-surface-variant">Otomatis</p>
+</div>
+</div>
+<p class="text-body-md font-body-md font-bold text-primary"></p>
+</div>
+<div class="bg-background border border-outline-variant rounded-lg p-3 flex justify-between items-center cursor-pointer hover:border-primary-container transition-all" onclick="selectCard(this)">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-container rounded-md flex items-center justify-center">
+<span class="text-xs font-bold text-[#118EEA]">DANA</span>
+</div>
+<div>
+<p class="text-label-sm font-label-bold text-on-surface">DANA</p>
+<p class="text-xs text-on-surface-variant">Otomatis</p>
+</div>
+</div>
+<p class="text-body-md font-body-md font-bold text-primary"></p>
+</div>
+</div>
+</div>
+<!-- QRIS -->
+<div>
+<h4 class="text-body-lg font-body-lg font-semibold text-on-surface mb-3 border-b border-surface-variant pb-2">QRIS (E-Wallet dan Mobile Banking)</h4>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="bg-background border border-outline-variant rounded-lg p-3 flex justify-between items-center cursor-pointer hover:border-primary-container transition-all border-primary-container shadow-[0_0_8px_rgba(13,110,253,0.2)] item-card-selected" onclick="selectCard(this)">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface-bright rounded-md flex items-center justify-center p-1">
+<span class="text-xs font-bold text-[#ED1C24]">QRIS</span>
+</div>
+<div>
+<p class="text-label-sm font-label-bold text-on-surface">QRIS</p>
+<p class="text-xs text-on-surface-variant">Otomatis</p>
+</div>
+</div>
+<p class="text-body-md font-body-md font-bold text-primary"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Step 4: Contact -->
+<section class="bg-surface-card rounded-xl border border-outline-variant p-6">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">4</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Masukkan Nomor WhatsApp</h3>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-1">Nomor WhatsApp</label>
+<input class="w-full bg-background border border-outline-variant rounded-md px-4 py-2 text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="08xxxxxxxxx" type="tel"/>
+<p class="text-xs text-on-surface-variant mt-2">Notifikasi pesanan akan dikirimkan melalui whatsapp</p>
+</div>
+</section>
+<!-- CTA Button -->
+<button class="w-full bg-primary-container hover:bg-inverse-primary text-on-primary-container font-headline-sm text-headline-sm py-4 rounded-xl transition-all shadow-lg hover:shadow-primary/50 flex justify-center items-center gap-2" onclick="window.location.href='https://wa.me/6282358394700?text=Halo%20Admin%2C%20saya%20mau%20order...'">
+                    Beli Sekarang <span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+<!-- SEO Article Section -->
+<article class="mt-stack-lg border-t border-surface-variant pt-stack-lg prose prose-invert max-w-none text-body-md font-body-md text-on-surface-variant">
+<h3 class="text-display-lg font-display-lg text-on-surface mb-4">Mobile Legends: Game MOBA Populer dan Cara Top Up Diamond dengan Mudah</h3>
+<p>Mobile Legends: Bang Bang adalah salah satu game MOBA (Multiplayer Online Battle Arena) yang paling populer di Indonesia dan dunia. Dengan jutaan pemain aktif setiap harinya, Mobile Legends telah menjadi game favorit bagi berbagai kalangan, dari anak-anak hingga orang dewasa. Artikel ini akan membahas mengapa Mobile Legends begitu diminati dan bagaimana cara top up diamond Mobile Legends dengan mudah dan aman di website <strong>KoylMarket.ID</strong>.</p>
+<h4 class="text-headline-md font-headline-md text-on-surface mt-6 mb-3">Mengapa Mobile Legends Populer?</h4>
+<ol class="list-decimal pl-5 space-y-2">
+<li><strong>Gameplay Seru dan Kompetitif:</strong> Mobile Legends menawarkan gameplay 5v5 yang dinamis, di mana pemain harus bekerja sama dengan tim untuk menghancurkan base lawan.</li>
+<li><strong>Pilihan Hero yang Beragam:</strong> Ada ratusan hero dengan berbagai role, seperti Tank, Assassin, Mage, Marksman, dan Support, yang dapat disesuaikan dengan gaya bermain setiap pemain.</li>
+</ol>
+<h4 class="text-headline-md font-headline-md text-on-surface mt-6 mb-3">Cara Top Up Mobile Legends di KoylMarket.ID</h4>
+<p>Ada beberapa langkah mudah untuk <strong>top up diamond ML</strong> melalui website <strong>KoylMarket.ID</strong>. Berikut adalah panduannya:</p>
+<ol class="list-decimal pl-5 space-y-2">
+<li><strong>Kunjungi Website Resmi KoylMarket.ID:</strong> Buka browser Anda dan kunjungi KoylMarket.ID.</li>
+<li><strong>Masukkan ID Akun Mobile Legends Anda:</strong> Pada halaman top up Mobile Legends, masukkan ID akun dan server ID Anda.</li>
+<li><strong>Pilih Jumlah Diamond:</strong> Pilih jumlah diamond yang ingin Anda beli sesuai kebutuhan.</li>
+</ol>
+</article>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-low border-t border-surface-variant dark:border-surface-variant w-full mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-stack-lg w-full px-margin-mobile md:px-margin-desktop py-stack-lg max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="col-span-1 md:col-span-1">
+<div class="text-headline-md font-headline-md font-extrabold text-primary dark:text-primary mb-4 flex items-center gap-2">
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">
+                    KoylMarket.ID adalah platform yang menyediakan pelayanan top up game secara instan, murah, dan terpercaya.
+                </p>
+</div>
+<!-- Links Columns -->
+<div class="col-span-1">
+<h4 class="text-headline-sm font-headline-sm text-primary mb-4">Menu Cepat</h4>
+<ul class="space-y-2 text-body-md font-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Beranda</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Cek Status Pesanan</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Login Member</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Daftar Member</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="text-headline-sm font-headline-sm text-primary mb-4">Informasi</h4>
+<ul class="space-y-2 text-body-md font-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Daftar Harga</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Tentang Kami</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Syarat &amp; Ketentuan</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="text-headline-sm font-headline-sm text-primary mb-4">Kontak &amp; Sosial Media</h4>
+<ul class="space-y-2 text-body-md font-body-md">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Whatsapp</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Email</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Instagram</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Tiktok</a></li>
+</ul>
+</div>
+<div class="col-span-1 md:col-span-4 border-t border-surface-variant pt-4 mt-4 flex flex-col md:flex-row justify-between items-center text-body-md font-body-md text-on-surface-variant">
+<p>© 2024 KoylMarket.ID. All rights reserved.</p>
+</div>
+</div>
+</footer>
+</body></html>
